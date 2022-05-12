@@ -348,7 +348,7 @@ class SendStreamObjects(bpy.types.Operator):
     def invoke(self, context, event):
         wm = context.window_manager
         if len(context.scene.speckle.users) > 0:
-            N = len(context.selected_objects)
+            N = len(context.selectable_objects)
             if N == 1:
                 self.commit_message = "Pushed {} element from Blender.".format(N)
             else:
@@ -359,7 +359,7 @@ class SendStreamObjects(bpy.types.Operator):
 
     def execute(self, context):
 
-        selected = context.selected_objects
+        selected = context.selectable_objects
 
         if len(selected) < 1:
             return {"CANCELLED"}
