@@ -200,7 +200,7 @@ class VIEW3D_PT_SpeckleActiveStream(bpy.types.Panel):
                     row.operator("speckle.toggle_montagsmaling",
                                  text="", icon="OUTLINER_DATA_CAMERA")
                     row.label(
-                        text=speckle.montagsmaling_status_str)
+                        text=speckle.montagsmaling_status)
                     col.separator()
                     if len(branch.commits) > 0:
                         commit = branch.commits[int(branch.commit)]

@@ -137,7 +137,7 @@ class SpeckleSceneSettings(bpy.types.PropertyGroup):
         name="Confirm",
         default=False,
     )
-    montagsmaling_status_str: StringProperty(
+    montagsmaling_status: StringProperty(
         name="Confirm",
         default='Deactivated',
     )

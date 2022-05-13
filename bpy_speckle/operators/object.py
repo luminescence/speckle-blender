@@ -31,14 +31,12 @@ class ToggleMontagsmaling(bpy.types.Operator):
         spkl = context.scene.speckle
         if spkl.montagsmaling_active:
             bpy.app.timers.unregister(run_send_stream)
-            spkl.montagsmaling_status_str = 'Deactivated'
+            spkl.montagsmaling_status = 'Deactivated'
         else:
-            spkl.montagsmaling_status_str = 'Activated'
+            spkl.montagsmaling_status = 'Activated'
             bpy.app.timers.register(run_send_stream)
 
         spkl.montagsmaling_active = not spkl.montagsmaling_active
-
-        # bpy.app.timers.register(run_send_stream)
 
         return {"FINISHED"}
 
