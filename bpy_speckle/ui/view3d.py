@@ -192,7 +192,6 @@ class VIEW3D_PT_SpeckleActiveStream(bpy.types.Panel):
                     row.prop(branch, "commit", text="")
                     row.operator("speckle.commit_copy_id", text="", icon="COPY_ID")
 
-                    # foundamental button
                     col.separator()
                     area = col.box()
                     row = area.row()
