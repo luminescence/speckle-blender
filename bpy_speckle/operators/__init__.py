@@ -6,6 +6,7 @@ from .object import (
     UploadNgonsAsPolylines,
     SelectIfSameCustomProperty,
     SelectIfHasCustomProperty,
+    ToggleMontagsmaling,
 )
 from .streams import (
     ReceiveStreamObjects,
@@ -45,6 +46,7 @@ operator_classes.extend(
         UploadNgonsAsPolylines,
         SelectIfSameCustomProperty,
         SelectIfHasCustomProperty,
+        ToggleMontagsmaling,
     ]
 )
 
