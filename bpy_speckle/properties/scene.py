@@ -133,11 +133,11 @@ class SpeckleSceneSettings(bpy.types.PropertyGroup):
         items=get_scripts,
     )
 
-    montagsmaling_active: BoolProperty(
+    spectionary_active: BoolProperty(
         name="Confirm",
         default=False,
     )
-    montagsmaling_status: StringProperty(
+    spectionary_status: StringProperty(
         name="Confirm",
         default='Deactivated',
     )

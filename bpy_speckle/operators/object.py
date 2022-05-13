@@ -17,26 +17,26 @@ def run_send_stream():
     return 15.0
 
 
-class ToggleMontagsmaling(bpy.types.Operator):
+class ToggleSpectionary(bpy.types.Operator):
     """
     Toggle 
     """
 
-    bl_idname = "speckle.toggle_montagsmaling"
-    bl_label = "Toggle Montagsmaling"
+    bl_idname = "speckle.toggle_spectionary"
+    bl_label = "Toggle spectionary"
     bl_options = {"REGISTER", "UNDO"}
     bl_description = "Toggle automatic commits for awesome Montags maling"
 
     def execute(self, context):
         spkl = context.scene.speckle
-        if spkl.montagsmaling_active:
+        if spkl.spectionary_active:
             bpy.app.timers.unregister(run_send_stream)
-            spkl.montagsmaling_status = 'Deactivated'
+            spkl.spectionary_status = 'Deactivated'
         else:
-            spkl.montagsmaling_status = 'Activated'
+            spkl.spectionary_status = 'Activated'
             bpy.app.timers.register(run_send_stream)
 
-        spkl.montagsmaling_active = not spkl.montagsmaling_active
+        spkl.spectionary_active = not spkl.spectionary_active
 
         return {"FINISHED"}
 

@@ -149,7 +149,8 @@ class VIEW3D_PT_SpeckleStreams(bpy.types.Panel):
             row.operator("speckle.add_stream_from_url", text="", icon="URL")
             row.operator("speckle.create_stream", text="", icon="ADD")
             row.operator("speckle.delete_stream", text="", icon="REMOVE")
-            row.operator("speckle.load_user_streams", text="", icon="FILE_REFRESH")
+            row.operator("speckle.load_user_streams",
+                         text="", icon="FILE_REFRESH")
 
 
 class VIEW3D_PT_SpeckleActiveStream(bpy.types.Panel):
@@ -195,12 +196,12 @@ class VIEW3D_PT_SpeckleActiveStream(bpy.types.Panel):
                     col.separator()
                     area = col.box()
                     row = area.row()
-                    row.label(text="Montags-Maling")
+                    row.label(text="Spectionary")
                     row = area.row()
-                    row.operator("speckle.toggle_montagsmaling",
+                    row.operator("speckle.toggle_spectionary",
                                  text="", icon="OUTLINER_DATA_CAMERA")
                     row.label(
-                        text=speckle.montagsmaling_status)
+                        text=speckle.spectionary_status)
                     col.separator()
                     if len(branch.commits) > 0:
                         commit = branch.commits[int(branch.commit)]
