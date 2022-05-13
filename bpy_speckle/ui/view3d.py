@@ -193,11 +193,16 @@ class VIEW3D_PT_SpeckleActiveStream(bpy.types.Panel):
                     row.operator("speckle.commit_copy_id", text="", icon="COPY_ID")
 
                     # foundamental button
-                    row = col.row()
+                    col.separator()
+                    area = col.box()
+                    row = area.row()
+                    row.label(text="Montags-Maling")
+                    row = area.row()
                     row.operator("speckle.toggle_montagsmaling",
                                  text="", icon="OUTLINER_DATA_CAMERA")
                     row.label(
-                        text=f"{speckle.montagsmaling_status_str} Montagsmaling")
+                        text=speckle.montagsmaling_status_str)
+                    col.separator()
                     if len(branch.commits) > 0:
                         commit = branch.commits[int(branch.commit)]
                         area = col.box()
