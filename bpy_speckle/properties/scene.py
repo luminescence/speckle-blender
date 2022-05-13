@@ -132,3 +132,12 @@ class SpeckleSceneSettings(bpy.types.PropertyGroup):
         description="Script to run when sending stream objects.",
         items=get_scripts,
     )
+
+    montagsmaling_active: BoolProperty(
+        name="Confirm",
+        default=False,
+    )
+    montagsmaling_status_str: StringProperty(
+        name="Confirm",
+        default='Deactivated',
+    )

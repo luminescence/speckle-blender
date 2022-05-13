@@ -27,19 +27,16 @@ class ToggleMontagsmaling(bpy.types.Operator):
     bl_options = {"REGISTER", "UNDO"}
     bl_description = "Toggle automatic commits for awesome Montags maling"
 
-    montagsmaling_active: BoolProperty(
-        name="Confirm",
-        default=False,
-    )
-
     def execute(self, context):
-
-        if self.montagsmaling_active:
+        spkl = context.scene.speckle
+        if spkl.montagsmaling_active:
             bpy.app.timers.unregister(run_send_stream)
+            spkl.montagsmaling_status_str = 'Deactivated'
         else:
+            spkl.montagsmaling_status_str = 'Activated'
             bpy.app.timers.register(run_send_stream)
 
-        self.montagsmaling_active = not self.montagsmaling_active
+        spkl.montagsmaling_active = not spkl.montagsmaling_active
 
         # bpy.app.timers.register(run_send_stream)
 
