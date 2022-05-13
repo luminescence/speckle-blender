@@ -211,7 +211,7 @@ class VIEW3D_PT_SpeckleActiveStream(bpy.types.Panel):
                         row = col.row()
                         row.operator("speckle.add_stream_from_url",
                                      text="", icon="OUTLINER_DATA_CAMERA")
-                        row.label(text=f"{'Activate Montagsmaling'}")
+                        row.label(text=f"{'Activate'} Montagsmaling")
                         col.label(text=f"{dt.ctime()}")
                         col.label(text=f"{commit.author_name} ({commit.author_id})")
                         col.label(text=commit.source_application)
