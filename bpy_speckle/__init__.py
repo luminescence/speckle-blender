@@ -76,7 +76,7 @@ def run_send_stream():
 @persistent
 def load_handler(dummy):
     bpy.ops.speckle.users_load()
-    bpy.app.timers.register(run_send_stream)
+    # bpy.app.timers.register(run_send_stream)
 
 
 """
