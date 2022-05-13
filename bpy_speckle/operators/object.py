@@ -12,6 +12,11 @@ from bpy_speckle.functions import get_scale_length, _report
 from bpy_speckle.clients import speckle_clients
 
 
+def run_send_stream():
+    bpy.ops.speckle.send_stream_objects()
+    return 15.0
+
+
 class ToggleMontagsmaling(bpy.types.Operator):
     """
     Toggle 
@@ -20,7 +25,7 @@ class ToggleMontagsmaling(bpy.types.Operator):
     bl_idname = "speckle.toggle_montagsmaling"
     bl_label = "Toggle Montagsmaling"
     bl_options = {"REGISTER", "UNDO"}
-    bl_description = "Toggle automatic commits"
+    bl_description = "Toggle automatic commits for awesome Montags maling"
 
     montagsmaling_active: BoolProperty(
         name="Confirm",
@@ -34,9 +39,9 @@ class ToggleMontagsmaling(bpy.types.Operator):
         else:
             bpy.app.timers.register(run_send_stream)
 
-        self.montagsmaling_active = !self.montagsmaling_active
+        self.montagsmaling_active = not self.montagsmaling_active
 
-        bpy.app.timers.register(run_send_stream)
+        # bpy.app.timers.register(run_send_stream)
 
         return {"FINISHED"}
 

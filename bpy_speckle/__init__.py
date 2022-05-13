@@ -68,11 +68,6 @@ loading a Blender file
 """
 
 
-def run_send_stream():
-    bpy.ops.speckle.send_stream_objects()
-    return 15.0
-
-
 @persistent
 def load_handler(dummy):
     bpy.ops.speckle.users_load()
