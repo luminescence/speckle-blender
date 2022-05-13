@@ -196,7 +196,8 @@ class VIEW3D_PT_SpeckleActiveStream(bpy.types.Panel):
                     row = col.row()
                     row.operator("speckle.toggle_montagsmaling",
                                  text="", icon="OUTLINER_DATA_CAMERA")
-                    row.label(text=f"{'Activate'} Montagsmaling")
+                    row.label(
+                        text=f"{speckle.montagsmaling_status_str} Montagsmaling")
                     if len(branch.commits) > 0:
                         commit = branch.commits[int(branch.commit)]
                         area = col.box()
