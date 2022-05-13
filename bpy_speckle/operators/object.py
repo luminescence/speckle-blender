@@ -12,6 +12,35 @@ from bpy_speckle.functions import get_scale_length, _report
 from bpy_speckle.clients import speckle_clients
 
 
+class ToggleMontagsmaling(bpy.types.Operator):
+    """
+    Toggle 
+    """
+
+    bl_idname = "speckle.toggle_montagsmaling"
+    bl_label = "Toggle Montagsmaling"
+    bl_options = {"REGISTER", "UNDO"}
+    bl_description = "Toggle automatic commits"
+
+    montagsmaling_active: BoolProperty(
+        name="Confirm",
+        default=False,
+    )
+
+    def execute(self, context):
+
+        if self.montagsmaling_active:
+            bpy.app.timers.unregister(run_send_stream)
+        else:
+            bpy.app.timers.register(run_send_stream)
+
+        self.montagsmaling_active = !self.montagsmaling_active
+
+        bpy.app.timers.register(run_send_stream)
+
+        return {"FINISHED"}
+
+
 class UpdateObject(bpy.types.Operator):
     """
     Update local (receive) or remote (send) object depending on
